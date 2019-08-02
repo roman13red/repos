@@ -1,0 +1,42 @@
+﻿
+@using entityFramevorkCore.Models
+@model entityFramevorkCore.Models.User
+
+<h2>ID № @Model.Id</h2>
+@using (Html.BeginForm("Dbredact", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.Name, "Имя")
+        <br />
+        @Html.EditorFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Surname, "Фамилия")
+        <br />
+        @Html.EditorFor(m => m.Surname)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Email, "email")
+        <br />
+        @Html.EditorFor(m => m.Email)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Phone, "Телефон")
+        <br />
+        @Html.EditorFor(m => m.Phone)
+
+    </p>
+    <div class="editor-label"><b>Страницы</b></div>
+    @foreach (var c in ViewBag.Pages)
+    {
+
+        <input type="checkbox" name="selectPages" value="@c.Id"
+               @(ViewBag.user.Contains(c.Id) ? "checked=\"checked\"" : "") />@c.Name <br />
+        }
+    <p><input type="submit" value="Отправить" /></p>
+</fieldset>
+}

@@ -1,0 +1,62 @@
+﻿@using entityFramevorkCore.Models
+@using System.Text.RegularExpressions;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Insert</title>
+</head>
+<body>
+
+    <div>
+        <h3>Добавить юзера</h3>
+        <form method="post" action="">
+            <table>
+                <tr>
+                    <td><p>Введите  имя </p></td>
+                    <td><input type="text" name="Name" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите Фамилию :</p></td>
+                    <td>
+                        <input type="text" name="Surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Введите email :</p></td>
+                    <td>
+                        <input type="email" name="Email"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Введите Телефон :</p></td>
+                    <td>
+                        <p>+7<input type="text" name="Phone" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" size=17/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Выберете Страницы :</p></td>
+                    <td>
+                        @foreach (var c in ViewBag.Pages)
+                        {
+                            <input type="checkbox" name="selectPages" value="@c.Id"
+                                   @(ViewBag.Pages.Contains(c) ? "checked=\"checked\"" : "") />@c.Name <br />
+                            }
+                    </td>
+                </tr>
+                <tr><td><input name="post" type="submit" value="Добавить" id="post" /> </td><td></td></tr>
+
+
+            </table>
+            <button name="cancel" type="submit" value="Назад">Отмена</button>
+
+
+        </form>
+
+
+
+    </div>
+
+</body>
+</html>

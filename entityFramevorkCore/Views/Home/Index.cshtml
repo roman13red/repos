@@ -1,0 +1,71 @@
+﻿
+
+@using entityFramevorkCore.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<User>
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>
+                            <a href="/Home/Index?sortOrder=@ViewBag.NameSort">
+                                Имя
+                            </a>
+                        </th>
+                        <th>
+                            <a href="/Home/Index?sortOrder=@ViewBag.SurnameSort">
+                                Фамилия
+                            </a>
+                        </th>
+                        <th>
+                            <a>
+                                Email
+                            </a>
+                        </th>
+                        <th>
+                            <a>
+                                Phone
+                            </a>
+                        </th>
+                    </tr>
+                    @foreach (User b in @ViewBag.user)
+                    {
+                        <tr>
+                            <td>@b.Name</td>
+                            <td>@b.Surname</td>
+                            <td>@b.Email</td>
+                            <td>@b.Phone</td>
+                            <td>
+                                @foreach (var c in b.Pages)
+                                {
+                                    @foreach (var v in @ViewBag.page)
+                                    {
+                                        @if (c.PageId == v.Id)
+                                        {
+                                            @(v.Name + " ")
+                                        }
+                                    }
+                                }
+                            </td>
+                            <td><p><a href="/Home/Dbredact/@b.Id">Редактировать</a></p></td>
+                            <td><p><a href="/Home/Delete/@b.Id">Удалить</a></p></td>
+                        </tr>
+
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p><a href="/Home/DbInsert">Добавить</a></p>
+
+</body>
+</html>
