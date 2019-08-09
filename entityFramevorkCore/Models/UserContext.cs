@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace entityFramevorkCore.Models
 {
-    public class UserContext: DbContext
+    public class UserContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Page> Pages { get; set; }
@@ -35,4 +35,5 @@ namespace entityFramevorkCore.Models
             optionsBuilder.UseNpgsql(@"Host=localhost;Port=5432;Database=User1 ;Username=postgres;Password=246101626ROMANkutkin");
         }
     }
+       
 }

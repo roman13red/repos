@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "books", "books\books.csproj", "{B88A45F8-20DE-4D58-A7F0-5D6A68CA1844}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "entityFramevorkCore", "entityFramevorkCore\entityFramevorkCore.csproj", "{E4E8DAB1-8D4A-433A-ACAE-B3CADE88CE5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B88A45F8-20DE-4D58-A7F0-5D6A68CA1844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88A45F8-20DE-4D58-A7F0-5D6A68CA1844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88A45F8-20DE-4D58-A7F0-5D6A68CA1844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88A45F8-20DE-4D58-A7F0-5D6A68CA1844}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E8DAB1-8D4A-433A-ACAE-B3CADE88CE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E8DAB1-8D4A-433A-ACAE-B3CADE88CE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E8DAB1-8D4A-433A-ACAE-B3CADE88CE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E8DAB1-8D4A-433A-ACAE-B3CADE88CE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02FB511C-E9D8-4D7C-B39C-1200CC4078D4}
+	EndGlobalSection
+EndGlobal

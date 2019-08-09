@@ -1,0 +1,220 @@
+﻿
+
+@*@using books.Models*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*@model IEnumerable<Books>*@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>
+                            @if (@ViewBag.NameSort == 13)
+                            {<a href="/Home/Index?sortOrder=13&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Id-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 26)
+                            {
+                                <a href="/Home/Index?sortOrder=13&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Id+
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=13&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Id
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 1)
+                            {
+                                <a href="/Home/Index?sortOrder=1&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Название книги-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 2)
+                            {
+                                <a href="/Home/Index?sortOrder=1&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Название книги+
+                                </a>
+
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=1&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Название книги
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 3)
+                            {
+                                <a href="/Home/Index?sortOrder=3&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Дата написания-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 6)
+                            {
+                                <a href="/Home/Index?sortOrder=3&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Дата написания+
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=3&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Дата написания
+                                </a>
+                            }
+
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 5)
+                            {
+                                <a href="/Home/Index?sortOrder=5&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Стеллаж-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 10)
+                            {
+                                <a href="/Home/Index?sortOrder=5&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Стеллаж+
+                                </a>
+
+                            }
+                            else 
+                            {
+                                <a href="/Home/Index?sortOrder=5&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Стеллаж
+                                </a>
+
+                            }
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 7)
+                            {
+                                <a href="/Home/Index?sortOrder=7&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Количество-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 14)
+                            {
+                                <a href="/Home/Index?sortOrder=7&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Количество+
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=7&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Количество
+                                </a>
+
+                            }
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 9)
+                            {
+                                <a href="/Home/Index?sortOrder=9&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Цена-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 18)
+                            {
+                                <a href="/Home/Index?sortOrder=9&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Цена+
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=9&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Цена
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (@ViewBag.NameSort == 11)
+                            {
+                                <a href="/Home/Index?sortOrder=11&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Продается-
+                                </a>
+                            }
+                            else if (@ViewBag.NameSort == 22)
+                            {
+                                <a href="/Home/Index?sortOrder=11&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Продается+
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Index?sortOrder=11&sorTest=@ViewBag.NameSort&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                                    Продается
+                                </a>
+                            }
+                        </th>
+                    </tr>
+                    @foreach (Book b in Model)
+                    {
+                        <tr>
+                            <td>@b.Id</td>
+                            <td>@b.NameBook</td>
+                            <td>@b.Date</td>
+                            <td>@b.Blook</td>
+                            <td>@b.Count</td>
+                            <td>@b.Price</td>
+                            <td>@b.Ok</td>
+
+                        </tr>
+
+
+                    }
+
+
+
+                </tbody>
+
+            </table>
+            <a href="/Home/Index?test=@ViewBag.NameSort&lastsortorder=@ViewBag.sortorder&min=@(@ViewBag.min-25)&max=@(@ViewBag.max-25)&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                Назад
+            </a>
+            @for (int x = 1; x <= @ViewBag.Count; x++)
+            {
+
+                <a href="/Home/Index?test=@ViewBag.NameSort&lastsortorder=@ViewBag.sortorder&min=@(25*(x-1))&max=@(25* x)&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                    @x
+                </a>
+
+            }
+            <a href="/Home/Index?test=@ViewBag.NameSort&lastsortorder=@ViewBag.sortorder&min=@(@ViewBag.min+25)&max=@(@ViewBag.max+25)&OldSearch=@ViewBag.Search&oldSearcrButton=@ViewBag.searcrButton">
+                Вперед
+            </a>
+
+
+           <form method="get" action="">
+                <p><input name="searcrButton" type="radio" value="Id" />Поиск по Id</p>
+                <p><input name="searcrButton" type="radio" value="NameBook" />Поиск по Название книги</p>
+                <p><input name="searcrButton" type="radio" value="Date" />Поиск по Дата написания </p> 
+                <p><input name="searcrButton" type="radio" value="Blook" />Поиск по Стеллаж</p>
+                <p><input name="searcrButton" type="radio" value="Count" />Поиск по Количество</p>
+                <p><input name="searcrButton" type="radio" value="Price" />Поиск по Цена</p>
+                <p><input name="searcrButton" type="radio" value="Ok" />Поиск по Продается</p>
+                <a>
+                    <input type="text" name="Search"  />
+                
+                   
+                </a>
+                <button name="Test" type="submit" value="Назад" >Найти</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

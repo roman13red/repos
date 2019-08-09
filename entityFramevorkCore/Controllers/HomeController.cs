@@ -49,9 +49,9 @@ namespace entityFramevorkCore.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult DbInsert(string post, string cancel, User purchase, int[] selectPages)
+        public ActionResult DbInsert(string name, User purchase, int[] selectPages)
         {
-            if (post != null)
+            if (name == "post")
             {
                 ViewBag.Pages = db.Pages.ToList();
                 List<UserPage> uslist = new List<UserPage>();
@@ -71,7 +71,7 @@ namespace entityFramevorkCore.Controllers
                 db.SaveChanges();
 
             }
-            if (cancel != null)
+            if (name == "Назад")
 
             {
                 User newUser = new User();
