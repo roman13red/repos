@@ -12,7 +12,7 @@ namespace algoritmTest
             {
                 var chislo2 = result - b;
                 var num = Array.IndexOf(values, chislo2);
-                if (num != -1)
+                if (num != -1 & Array.IndexOf(values, chislo2)!= Array.IndexOf(values, b))
                 {
                      otvet = new int[2] { Array.IndexOf(values, b), num }.OrderBy(x=>x).ToArray();
 
@@ -28,8 +28,8 @@ namespace algoritmTest
         }
 
         static void Main(string[] args)
-        {int[] number = new int[] { 3, 5, 8, 7,2 };
-            int sum = 7;
+        {int[] number = new int[] { 3, 2 ,4};
+            int sum = 6;
             var otvet = Function(number,sum);
             foreach (var f in otvet)
             {
