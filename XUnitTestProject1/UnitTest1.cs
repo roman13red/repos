@@ -59,6 +59,18 @@ namespace XUnitTestProject1
                 {
                     Otvet.Add(str.Count());
                     str = "";
+                    x = line.IndexOf(line[x]) + 1;
+                    for (int i=0; i <= line.IndexOf(line[x]); i++)
+                    {if (line[x] != '#')
+                        {
+                            line = line.Remove(i, 1).Insert(i, "#");
+                        }
+                     else
+                        {
+                            line = line.Remove(i, 1).Insert(i, "&");
+                        }
+                    }
+                    
                 }
                 else
                 {
@@ -89,7 +101,7 @@ namespace XUnitTestProject1
         [Theory]
         [InlineData("wertyWWiiop[ppiuu",5)]
         [InlineData("lwehqrnvoitiyweyrtytytywnfddx",11)]
-        [InlineData("vnbiruycpq3I848V645RYFEYFYFIOW5642CQE[XY2VADMD",14)]
+        [InlineData("vqwtvyuivghl[]>';",12)]
 
 
         public void Test2(string s,int maxNumber)
