@@ -61,7 +61,7 @@ namespace XUnitTestProject1
                         Otvet.Add(str.Count());
                         str = "";
                         x = line.IndexOf(line[x]) + 1;
-                        for (int i = 0; i <= line.IndexOf(line[x]); i++)
+                        for (int i = 0; i < line.IndexOf(line[x]); i++)
                         {
                             if (line[x] != '#')
                             {
@@ -94,7 +94,7 @@ namespace XUnitTestProject1
         }
 
         [Theory]
-        [InlineData(new int[]{1, 3, 4, 5, 6, 11,1, 8, 9, 10},2 , new int[] { 0,6})]
+        [InlineData(new int[]{-1, 3, 4, 5, 6, 11,1, 8, 9, 10},2 , new int[] { 0,1})]
         [InlineData(new int[] {10,2,3,4,5,6,1,3,3,2}, 8,new int[] {1,5})]
         [InlineData(new int[] { 0, 2, 3, 4, 5, 6, 10, 8, 9, 0 }, 0, new int[] { 0, 9 })]
         public void Test1(int[] values, int result, int[] test)
@@ -106,7 +106,7 @@ namespace XUnitTestProject1
         [Theory]
         [InlineData("wertyWWiiop[ppiuu",5)]
         [InlineData("lwehqrnvoitiyweyrtytytywnfddx",11)]
-        [InlineData("",0)]
+        [InlineData("abcabcbb",3)]
 
 
         public void Test2(string s,int maxNumber)

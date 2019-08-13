@@ -90,34 +90,38 @@ namespace algoritmTest
             int countLine = line.Count();
             do
             {
-                char chars = line[x];
-                if (str.Contains(chars) == true)
+                if (countLine != 0)
                 {
-                    Otvet.Add(str.Count());
-                    str = "";
-                    x = line.IndexOf(line[x]) + 1;
-                    for (int i = 0; i <= line.IndexOf(line[x]); i++)
+                    if (str.Contains(line[x]) == true)
                     {
-                        if (line[x] != '#')
+                        Otvet.Add(str.Count());
+                        str = "";
+                        x = line.IndexOf(line[x]) + 1;
+                        for (int i = 0; i < line.IndexOf(line[x]); i++)
                         {
-                            line = line.Remove(i, 1).Insert(i, "#");
+                            if (line[x] != '#')
+                            {
+                                line = line.Remove(i, 1).Insert(i, "#");
+                            }
+                            else
+                            {
+                                line = line.Remove(i, 1).Insert(i, "&");
+                            }
                         }
-                        else
-                        {
-                            line = line.Remove(i, 1).Insert(i, "&");
-                        }
-                    }
 
+                    }
+                    else
+                    {
+                        str = str + line[x];
+                        x++;
+                    }
+                    if (x == countLine)
+                    {
+                        Otvet.Add(str.Count());
+                    }
                 }
-                else
-                {
-                    str = str + chars;
-                    x++;
-                }
-                if (x == countLine)
-                {
-                    Otvet.Add(str.Count());
-                }
+                else { Otvet.Add(0); }
+
             }
             while (x != countLine);
 
@@ -127,7 +131,7 @@ namespace algoritmTest
 
         static void Main(string[] args)
         {
-            var s = "wertyWWiiop[ppiuu";
+            var s = "abcabcbb";
             var m = FunctionTextWhile(s);
 
                 Console.Write(m);
