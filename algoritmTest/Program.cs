@@ -9,24 +9,23 @@ namespace algoritmTest
         static public int[] Function(int[] values, int result)
         {
             int[] otvet = new int[1];
-           
+
             foreach (var b in values)
             {
                 var num = 0;
-                //var testNotDouble = values.ToList();
-                //var testDouble=testNotDouble.RemoveAt(Array.IndexOf(values, b));
+
                 var chislo2 = result - b;
                 if (chislo2 == b)
                 {
-                   
-                  var doubleNot = values.ToList();
-                  doubleNot[Array.IndexOf(doubleNot.ToArray(), b)] = 0;
-                  num= Array.IndexOf(doubleNot.ToArray(), chislo2);
-                  doubleNot.Clear();
+
+                    var doubleNot = values.ToList();
+                    doubleNot[Array.IndexOf(doubleNot.ToArray(), b)] = 0;
+                    num = Array.IndexOf(doubleNot.ToArray(), chislo2);
+                    doubleNot.Clear();
                 }
                 else
                 {
-                     num = Array.IndexOf(values.ToArray(), chislo2);
+                    num = Array.IndexOf(values.ToArray(), chislo2);
                 }
                 if (num != -1)
                 {
@@ -42,6 +41,7 @@ namespace algoritmTest
 
             return (otvet);
         }
+
 
         static public void FunctionTextRecurs(ref string s ,ref List<int> Otvet)
         {
@@ -84,7 +84,7 @@ namespace algoritmTest
         static public int FunctionTextWhile(string line)
         {
             line = line.ToLower();
-            List<int> Otvet=new List<int>();
+            List<int> Otvet = new List<int>();
             string str = "";
             int x = 0;
             int countLine = line.Count();
@@ -95,6 +95,19 @@ namespace algoritmTest
                 {
                     Otvet.Add(str.Count());
                     str = "";
+                    x = line.IndexOf(line[x]) + 1;
+                    for (int i = 0; i <= line.IndexOf(line[x]); i++)
+                    {
+                        if (line[x] != '#')
+                        {
+                            line = line.Remove(i, 1).Insert(i, "#");
+                        }
+                        else
+                        {
+                            line = line.Remove(i, 1).Insert(i, "&");
+                        }
+                    }
+
                 }
                 else
                 {
@@ -106,12 +119,11 @@ namespace algoritmTest
                     Otvet.Add(str.Count());
                 }
             }
-            while (x!= countLine);
+            while (x != countLine);
 
-            return(Otvet.Max());
+            return (Otvet.Max());
 
         }
-
 
         static void Main(string[] args)
         {
