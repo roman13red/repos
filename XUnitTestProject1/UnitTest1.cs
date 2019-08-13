@@ -106,7 +106,7 @@ namespace XUnitTestProject1
         [Theory]
         [InlineData("wertyWWiiop[ppiuu",5)]
         [InlineData("lwehqrnvoitiyweyrtytytywnfddx",11)]
-        [InlineData("abcabcbb",3)]
+        [InlineData("abcabcbb", 3)]
 
 
         public void Test2(string s,int maxNumber)
