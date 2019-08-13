@@ -9,13 +9,28 @@ namespace algoritmTest
         static public int[] Function(int[] values, int result)
         {
             int[] otvet = new int[1];
+           
             foreach (var b in values)
             {
+                var num = 0;
+                //var testNotDouble = values.ToList();
+                //var testDouble=testNotDouble.RemoveAt(Array.IndexOf(values, b));
                 var chislo2 = result - b;
-                var num = Array.IndexOf(values, chislo2);
-                if (num != -1 & Array.IndexOf(values, chislo2) != Array.IndexOf(values, b))
+                if (chislo2 == b)
                 {
-                    otvet = new int[2] { Array.IndexOf(values, b), num }.OrderBy(x => x).ToArray();
+                   
+                  var doubleNot = values.ToList();
+                  doubleNot[Array.IndexOf(doubleNot.ToArray(), b)] = 0;
+                  num= Array.IndexOf(doubleNot.ToArray(), chislo2);
+                  doubleNot.Clear();
+                }
+                else
+                {
+                     num = Array.IndexOf(values.ToArray(), chislo2);
+                }
+                if (num != -1)
+                {
+                    otvet = new int[2] { Array.IndexOf(values, b), num }.ToArray();
 
                     break;
                 }
@@ -28,7 +43,7 @@ namespace algoritmTest
             return (otvet);
         }
 
-        static public void FunctionText1(ref string s ,ref List<int> Otvet)
+        static public void FunctionTextRecurs(ref string s ,ref List<int> Otvet)
         {
             int x=0;
             int charCount = s.Count();
@@ -53,25 +68,59 @@ namespace algoritmTest
             }
             else
             {
-                FunctionText1(ref s, ref Otvet);
+                FunctionTextRecurs(ref s, ref Otvet);
             }
 
             
         }
-        static public int FunctionText2(string s)
+        static public int FunctionTextAnswer(string s)
         {
             List<int>  otvet = new List<int> { };
             s=s.ToLower();
-            FunctionText1(ref s, ref otvet);
+            FunctionTextRecurs(ref s, ref otvet);
 
             return(otvet.Max());
+        }
+        static public int FunctionTextWhile(string line)
+        {
+            line = line.ToLower();
+            List<int> Otvet=new List<int>();
+            string str = "";
+            int x = 0;
+            int countLine = line.Count();
+            do
+            {
+                char chars = line[x];
+                if (str.Contains(chars) == true)
+                {
+                    Otvet.Add(str.Count());
+                    str = "";
+                }
+                else
+                {
+                    str = str + chars;
+                    x++;
+                }
+                if (x == countLine)
+                {
+                    Otvet.Add(str.Count());
+                }
+            }
+            while (x!= countLine);
+
+            return(Otvet.Max());
+
         }
 
 
         static void Main(string[] args)
         {
-            string s = "wertywiop][op ldlf";
-                 Console.Write(FunctionText2(s));
+            var s = "wertyWWiiop[ppiuu";
+            var m = FunctionTextWhile(s);
+
+                Console.Write(m);
+            
+                
                 
            
         }
