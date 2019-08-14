@@ -20,10 +20,10 @@ namespace XUnitTestProject1
                 if (chislo2 == b)
                 {
 
-                    var doubleNot = values.ToList();
-                    doubleNot[Array.IndexOf(doubleNot.ToArray(), b)] = (b==0)?1:0;
-                    num = Array.IndexOf(doubleNot.ToArray(), chislo2);
-                    doubleNot.Clear();
+                    var doubleNot = values.ToArray();
+                    doubleNot[Array.IndexOf(doubleNot, b)] = (b==0)?1:0;
+                    num = Array.IndexOf(doubleNot, chislo2);
+                    
                 }
                 else
                 {
@@ -35,6 +35,34 @@ namespace XUnitTestProject1
 
                     break;
                 }
+
+
+
+            }
+
+
+            return (otvet);
+        }
+        static public int[] FunctionNumber(int[] values, int result)
+        {
+            int[] otvet = new int[1];
+
+            for (int i = 0; i < values.Count(); i++)
+            {
+
+
+                var residue = result - values[i];
+
+                for (int j = 0; j < values.Count(); j++)
+                {
+                    if (values[j] == residue & j != i)
+                    {
+                        otvet = new int[2] { i, j };
+                        return (otvet);
+                    }
+
+                }
+
 
 
 
@@ -104,12 +132,22 @@ namespace XUnitTestProject1
 
 
         [Theory]
+        [InlineData(new int[] { -1, 3, 4, 5, 6, 11, 1, 8, 9, 10 }, 2, new int[] { 0, 1 })]
+        [InlineData(new int[] { 10, 2, 3, 4, 5, 6, 1, 3, 3, 2 }, 8, new int[] { 1, 5 })]
+        [InlineData(new int[] { 0, 2, 3, 4, 5, 6, 10, 8, 9, 0 }, 0, new int[] { 0, 9 })]
+        public void Test2(int[] values, int result, int[] test)
+        {
+            Assert.Equal(test, FunctionNumber(values, result));
+        }
+
+
+        [Theory]
         [InlineData("wertyWWiiop[ppiuu",5)]
         [InlineData("lwehqrnvoitiyweyrtytytywnfddx",11)]
         [InlineData("abcabcbb", 3)]
 
 
-        public void Test2(string s,int maxNumber)
+        public void Test3(string s,int maxNumber)
         {
             Assert.Equal(maxNumber, FunctionTextWhile(s));
         }

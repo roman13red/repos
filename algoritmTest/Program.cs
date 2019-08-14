@@ -18,18 +18,18 @@ namespace algoritmTest
                 if (chislo2 == b)
                 {
 
-                    var doubleNot = values.ToList();
-                    doubleNot[Array.IndexOf(doubleNot.ToArray(), b)] = 0;
-                    num = Array.IndexOf(doubleNot.ToArray(), chislo2);
-                    doubleNot.Clear();
+                    var doubleNot = values.ToArray();
+                    doubleNot[Array.IndexOf(doubleNot, b)] = 0;
+                    num = Array.IndexOf(doubleNot, chislo2);
+                    Array.Clear(doubleNot, 0, doubleNot.Length);
                 }
                 else
                 {
-                    num = Array.IndexOf(values.ToArray(), chislo2);
+                    num = Array.IndexOf(values, chislo2);
                 }
                 if (num != -1)
                 {
-                    otvet = new int[2] { Array.IndexOf(values, b), num }.ToArray();
+                    otvet = new int[2] { Array.IndexOf(values, b), num };
 
                     break;
                 }
@@ -41,6 +41,53 @@ namespace algoritmTest
 
             return (otvet);
         }
+        static public int[] FunctionNumber(int[] values, int result)
+        {
+            int[] otvet = new int[1];
+
+            for(int i=0;i<values.Count();i++)
+            {
+          
+
+                var residue = result - values[i];
+
+                for (int j = 0; j < values.Count(); j++)
+                {
+                    if (values[j] == residue & j != i)
+                    {
+                        otvet = new int[2] { i, j };
+                    }
+
+                }
+
+
+                //    if (chislo2 == b)
+                //{
+
+                //    var doubleNot = values.ToArray();
+                //    doubleNot[Array.IndexOf(doubleNot, b)] = 0;
+                //    num = Array.IndexOf(doubleNot, chislo2);
+                //    Array.Clear(doubleNot, 0, doubleNot.Length)
+                //}
+                //else
+                //{
+                //    num = Array.IndexOf(values.ToArray(), chislo2);
+                //}
+                //if (num != -1)
+                //{
+                //    otvet = new int[2] { Array.IndexOf(values, b), num }.ToArray();
+
+                //    break;
+                //}
+
+
+
+            }
+
+
+            return (otvet);
+        }
+
 
 
         static public void FunctionTextRecurs(ref string s ,ref List<int> Otvet)
